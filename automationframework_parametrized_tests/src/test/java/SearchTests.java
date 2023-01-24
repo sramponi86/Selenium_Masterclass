@@ -1,14 +1,16 @@
-import drivers.DriverSingleton;
-import org.junit.After;
+import automation.drivers.DriverSingleton;
+import automation.pages.CheckoutPage;
+import automation.pages.HomePage;
+import automation.pages.SignInPage;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import pages.*;
-import utils.Constants;
-import utils.FrameworkProperties;
+import automation.pages.*;
+import automation.utils.Constants;
+import automation.utils.FrameworkProperties;
 
 import java.util.Arrays;
 import java.util.Collection;
