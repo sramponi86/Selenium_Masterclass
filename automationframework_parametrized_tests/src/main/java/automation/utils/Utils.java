@@ -7,4 +7,6 @@ public class Utils {
         Base64.Decoder decoder = Base64.getDecoder();
         return new String(decoder.decode(encodedStr.getBytes()));
     }
+
+    public static int testCount = 0;
 }
