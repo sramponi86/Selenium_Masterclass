@@ -5,10 +5,7 @@ import automation.drivers.DriverSingleton;
 import automation.pages.CheckoutPage;
 import automation.pages.HomePage;
 import automation.pages.SignInPage;
-import automation.utils.ConfigurationProperties;
-import automation.utils.Constants;
-import automation.utils.TestCases;
-import automation.utils.Utils;
+import automation.utils.*;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -48,30 +45,36 @@ public class StepDefinition {
         checkoutPage = new CheckoutPage();
         TestCases[] tests = TestCases.values();
         test = report.startTest(tests[Utils.testCount].getTestName());
+        Log.getLogData(Log.class.getName());
+        Log.startTest(tests[Utils.testCount].getTestName());
         //Utils.testCount++;
     }
 
     @Given("I go to the website")
     public void navigate_to_website(){
+        Log.info("INFO: Navigating to the website");
         driver = DriverSingleton.getDriver();
         driver.get(Constants.URL);
-        test.log(LogStatus.PASS,"Navigatig to the website");
+        test.log(LogStatus.PASS,"Navigating to the website");
     }
 
     @When("I click on the signIn button")
     public void click_on_singin(){
+        Log.info("INFO: Clicking on the Sign In button");
         homepage.clickSignIn();
         test.log(LogStatus.PASS, "Click on the signin");
     }
 
     @And("I specify my credential and click login")
     public void insert_credentials(){
+        Log.info("INFO: Insert correct credentials");
         signInPage.logIn(configurationProperties.getEmail(),configurationProperties.getPassword());
         test.log(LogStatus.PASS,"Perform the login");
     }
 
     @Then("I can login into the website")
     public void check_login(){
+        Log.info("INFO: Verify the login procedure");
         assertEquals(homepage.getUsername(),"Hello, Laurentiu");
         test.log(LogStatus.PASS,"Verify the correct login");
         //configurationProperties.getUsername()
@@ -79,6 +82,7 @@ public class StepDefinition {
 
     @After
     public void closeObjects(){
+        //Log.endTest(test);
         report.endTest(test);
         report.flush();
         DriverSingleton.closeObjectInstance();

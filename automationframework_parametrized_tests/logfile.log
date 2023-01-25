@@ -1,0 +1,5 @@
+2023-01-25 09:58:02,421 INFO  [Log] Test called : Testing the authenticationhas started 
+2023-01-25 09:58:02,424 INFO  [Log] Navigating to the website 
+2023-01-25 09:58:12,136 INFO  [Log] Clicking on the Sign In button 
+2023-01-25 09:58:12,225 INFO  [Log] Insert correct credentials 
+2023-01-25 09:58:12,515 INFO  [Log] Verify the login procedure 
